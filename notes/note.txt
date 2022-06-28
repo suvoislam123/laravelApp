@@ -1,0 +1,34 @@
+Laravel Migration related command
+1.php artisan optimize -->needed for clearing cache
+2.php artisan migrate --> for Migration
+3.php artisan make:migration creat_categories_table --> for creating catogories creat_categories_table
+4.php artisan migrate:status --> for checking migration status
+5.php artisan migrate:rollback --> for rollbacking migration
+6.php artisan migrate:rollback --step=1 --> for rollback last batch number
+7.php artisan make:migration products --create=products --> for creating table
+8.php artisan migrate:fresh --> it delets all table first then migrate them all 
+9.php artisan migrate:reset --> it rollbacks all tables
+10.php artisan make:migration alter_users_table --table=users --> for altering users table
+11.
+Seeding related command
+1.php artisan db:seed --> by default it calls DatabaseSeeder run method
+2.php artisan make:model Category
+3.php artisan make:seeder CategoriesTableSeeder -->for making catagories table seeder
+4.php artisan db:seed --class=CategoriesTableSeeder --> for seeding catagories table
+5.php artisan migrate:fresh --seed -->fresh with seed
+6.php artisan make:factory CategoryFactory -->for making Category model CategoryFactory
+7.php artisan db:seed --class=CategoriesTableSeeder -> for seeding category table by CategoriesTableSeeder   
+
+Some Popular Schema syntax
+Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('title',100)->unique();
+            $table->string('description')->nullable();
+            $table->timestamps();
+            $table->unsignedBigInteger('role_id')->nullable()->after('id'); //in aler table
+            $table->dropColumn('role_id');
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->dropForeign(['role_id']);
+        }); 
+
