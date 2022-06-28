@@ -6,10 +6,11 @@ Laravel Migration related command
 5.php artisan migrate:rollback --> for rollbacking migration
 6.php artisan migrate:rollback --step=1 --> for rollback last batch number
 7.php artisan make:migration products --create=products --> for creating table
-8.php artisan migrate:fresh --> it delets all table first then migrate them all 
+8.php artisan migrate:fresh --> it delets all table first then migrate them all
 9.php artisan migrate:reset --> it rollbacks all tables
 10.php artisan make:migration alter_users_table --table=users --> for altering users table
-11.
+11.sudo apt list --installed | grep 'php' --> to see list of installed php packages
+12.sudo apt remove packageName --> to uninstall a package
 Seeding related command
 1.php artisan db:seed --> by default it calls DatabaseSeeder run method
 2.php artisan make:model Category
@@ -17,7 +18,7 @@ Seeding related command
 4.php artisan db:seed --class=CategoriesTableSeeder --> for seeding catagories table
 5.php artisan migrate:fresh --seed -->fresh with seed
 6.php artisan make:factory CategoryFactory -->for making Category model CategoryFactory
-7.php artisan db:seed --class=CategoriesTableSeeder -> for seeding category table by CategoriesTableSeeder   
+7.php artisan db:seed --class=CategoriesTableSeeder -> for seeding category table by CategoriesTableSeeder
 
 Some Popular Schema syntax
 Schema::create('categories', function (Blueprint $table) {
@@ -30,5 +31,5 @@ Schema::create('categories', function (Blueprint $table) {
             $table->foreign('role_id')->references('id')->on('roles');
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->dropForeign(['role_id']);
-        }); 
+        });
 

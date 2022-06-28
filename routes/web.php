@@ -16,6 +16,8 @@ Route::controller(ComponentsUserController::class)->prefix('components-user')->g
 // CRUD Routes
 // -------------?// I will do crud for products table only
 Route::get('/products',[CrudController::class,'index'])->name('products.index');
+Route::get('/products/create',[CrudController::class,'create'])->name('products.create');
+Route::post('/products',[CrudController::class,'store'])->name('products.store');
 // CRUD Routes Ends
 
 // Basic Routes
