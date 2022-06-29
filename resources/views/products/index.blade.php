@@ -8,7 +8,7 @@
         </x-slot:header>
     </header>
     <x-slot:contents>
-        <a href="{{route('products.index')}}"><button class="btn btn-primary">All Products</button></a>
+        <a href="{{route('products.create')}}"><button class="btn btn-primary mt-2 mb-2">Creat New Product</button></a>
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -29,7 +29,7 @@
                     <td>{{$product->price}}</td>
                     <td>{{$product->quantity}}</td>
                     <td class="text-center">
-                      <a href=""><button class="btn btn-success">Show</button></a>
+                      <a href="{{route('products.show',['id'=>$product->id])}}"><button class="btn btn-success">Show</button></a>
                       <a href=""><button class="btn btn-primary">Edit</button></a>
                       <a href=""><button class="btn btn-danger">Delete</button></a>
                     </td>

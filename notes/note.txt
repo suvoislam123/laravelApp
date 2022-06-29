@@ -19,6 +19,7 @@ Seeding related command
 5.php artisan migrate:fresh --seed -->fresh with seed
 6.php artisan make:factory CategoryFactory -->for making Category model CategoryFactory
 7.php artisan db:seed --class=CategoriesTableSeeder -> for seeding category table by CategoriesTableSeeder
+8.php artisan make:request ProductRequest --> for making request
 
 Some Popular Schema syntax
 Schema::create('categories', function (Blueprint $table) {

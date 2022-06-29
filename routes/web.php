@@ -18,6 +18,7 @@ Route::controller(ComponentsUserController::class)->prefix('components-user')->g
 Route::get('/products',[CrudController::class,'index'])->name('products.index');
 Route::get('/products/create',[CrudController::class,'create'])->name('products.create');
 Route::post('/products',[CrudController::class,'store'])->name('products.store');
+Route::get('/products/{id}',[CrudController::class,'show'])->name('products.show');
 // CRUD Routes Ends
 
 // Basic Routes
