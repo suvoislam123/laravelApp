@@ -8,6 +8,9 @@
         </x-slot:header>
     </header>
     <x-slot:contents>
+        @if(session('message'))
+            <h3 class="text-center text-success">{{session('message')}}</h3>
+        @endif
         <a href="{{route('products.create')}}"><button class="btn btn-primary mt-2 mb-2">Creat New Product</button></a>
         <table class="table table-striped table-hover">
             <thead>
@@ -30,8 +33,14 @@
                     <td>{{$product->quantity}}</td>
                     <td class="text-center">
                       <a href="{{route('products.show',['id'=>$product->id])}}"><button class="btn btn-success">Show</button></a>
-                      <a href=""><button class="btn btn-primary">Edit</button></a>
-                      <a href=""><button class="btn btn-danger">Delete</button></a>
+                      <a href="{{route('product.edit',['product'=>$product->id])}}"><button class="btn btn-primary">Edit</button></a>
+                      <form action="{{route('product.destroy',['product'=>$product->id])}}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('delete')
+
+                        <button class="btn btn-danger" onclick="return confirm('Are you sure want to delete?');">Delete</button>
+                      </form>
+
                     </td>
                 </tr>
                 @endforeach

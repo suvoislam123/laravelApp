@@ -1,6 +1,6 @@
 <x-layout.products>
     <x-slot:title>
-        DashBoard
+        show product
     </x-slot:title>
     <header>
         <x-slot:header>

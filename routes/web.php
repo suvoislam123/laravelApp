@@ -19,6 +19,9 @@ Route::get('/products',[CrudController::class,'index'])->name('products.index');
 Route::get('/products/create',[CrudController::class,'create'])->name('products.create');
 Route::post('/products',[CrudController::class,'store'])->name('products.store');
 Route::get('/products/{id}',[CrudController::class,'show'])->name('products.show');
+Route::get('/products/{product}/edit',[CrudController::class,'edit'])->name('product.edit');
+Route::patch('/products/{product}',[CrudController::class,'update'])->name('product.update');
+Route::delete('/product/{product}',[CrudController::class,'destroy'])->name('product.destroy');
 // CRUD Routes Ends
 
 // Basic Routes
